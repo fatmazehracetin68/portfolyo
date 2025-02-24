@@ -4,61 +4,57 @@ import React, { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa6";
 import { BsReverseLayoutTextSidebarReverse } from "react-icons/bs";
-import { RiMailAiLine } from "react-icons/ri";
+import { RiMailAiLine, RiHome3Line } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { RiHome3Line } from "react-icons/ri";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleSidebar = () => setIsOpen(!isOpen);
+
   return (
     <>
-      <div className="relative min-h-screen bg-[#500073]">
-        <div
-          className="lg:hidden text-3xl absolute top-4 left-4 text-white"
-          onClick={toggleSidebar}
-        >
-          <RxHamburgerMenu />
-        </div>
+      {/* Mobil İçin Menü Butonu */}
+      <button
+        className="lg:hidden fixed top-4 left-4 text-[#500073] text-3xl z-50"
+        onClick={toggleSidebar}
+      >
+        <RxHamburgerMenu />
+      </button>
 
-        <div
-          className={`bg-[#500073] opacity-80  flex flex-col p-5 fixed top-0 left-0 h-full w-64 transition-all transform ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } lg:translate-x-0 lg:static lg:w-64 lg:h-auto`}
-        >
-          <div>
-            <h1 className="italic mt-10 text-xl text-center rotate-[-12deg] text-white">
-              Fatma Zehra <br /> Çetin
-            </h1>
-          </div>
-          <div className="mt-48">
-            <ul>
-              <li className="my-5 text-lg flex items-center gap-3 hover:bg-[#DF6D2D] p-2 rounded-md transition-all text-white">
-                <RiHome3Line />
-                <Link href="/home">Anasayfa</Link>
+      {/* Sidebar */}
+      <aside
+        className={`bg-[#500073] opacity-90 sticky top-0 left-0 min-h-screen w-64 p-5 transition-transform transform justify-between z-40 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:translate-x-0 lg:static`}
+      >
+        {/* Sidebar Başlık */}
+        <h1 className="italic mt-10 text-xl text-center rotate-[-12deg] text-white">
+          Fatma Zehra <br /> Çetin
+        </h1>
+
+        {/* Menü */}
+        <nav className="mt-10">
+          <ul className="fixed  translate-y-1/2">
+            {[
+              { href: "/home", label: "Anasayfa", icon: <RiHome3Line /> },
+              { href: "/about", label: "Hakkımda", icon: <FaRegUser /> },
+              { href: "/project", label: "Yazılım Projelerim", icon: <FaLaptopCode /> },
+              { href: "/blog", label: "Blog", icon: <BsReverseLayoutTextSidebarReverse /> },
+              { href: "/contact", label: "İletişim", icon: <RiMailAiLine /> },
+            ].map(({ href, label, icon }) => (
+              <li key={href} className="my-5">
+                <Link
+                  href={href}
+                  className="flex items-center gap-3 text-lg hover:bg-[#DF6D2D] p-2 rounded-md transition-all text-white"
+                >
+                  {icon}
+                  {label}
+                </Link>
               </li>
-              <li className="my-5 text-lg flex items-center gap-3 hover:bg-[#DF6D2D] p-2 rounded-md transition-all text-white">
-                <FaRegUser />
-                <Link href="/about">Hakkımda</Link>
-              </li>
-              <li className="my-5 text-lg flex items-center gap-3 hover:bg-[#DF6D2D] p-2 rounded-md transition-all text-white">
-                <FaLaptopCode />
-                <Link href="/project">Yazılım Projelerim</Link>
-              </li>
-              <li className="my-5 text-lg flex items-center gap-3 hover:bg-[#DF6D2D] p-2 rounded-md transition-all text-white">
-                <BsReverseLayoutTextSidebarReverse />
-                <Link href="/blog">Blog</Link>
-              </li>
-              <li className="my-5 text-lg flex items-center gap-3 hover:bg-[#DF6D2D] p-2 rounded-md transition-all text-white">
-                <RiMailAiLine />
-                <Link href="/contact">İletişim</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+            ))}
+          </ul>
+        </nav>
+      </aside>
     </>
   );
 };
