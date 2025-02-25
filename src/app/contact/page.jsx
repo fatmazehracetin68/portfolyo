@@ -42,7 +42,7 @@ const Contact = () => {
       <h1 className="text-[#DF6D2D] text-center font-bold text-2xl md:text-3xl">İLETİŞİM</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         {/* Sol Kısım */}
-        <div className="flex flex-col justify-center items-start border-2 border-[#E5D9F2] p-6 rounded-md shadow-lg">
+        <div className="flex flex-col justify-center items-start border-2 border-[#E5D9F2] p-6 rounded-md shadow-lg animate-slideIn">
           <p className="mb-4 text-lg">
             Herhangi bir sorunuz veya öneriniz için benimle iletişime geçmekten çekinmeyin. En kısa
             sürede dönüş sağlamaktan memnuniyet duyarım!
@@ -60,7 +60,10 @@ const Contact = () => {
         </div>
 
         {/* Form Kısmı */}
-        <form onSubmit={handleSubmit} className="bg-[#E5D9F2] p-6 rounded-md shadow-lg">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-[#E5D9F2] p-6 rounded-md shadow-lg animate-slideUp"
+        >
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-semibold">
               E-posta adresiniz

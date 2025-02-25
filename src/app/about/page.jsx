@@ -1,7 +1,26 @@
 import Image from "next/image";
 import React from "react";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
+import { FaReact } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { FaBootstrap } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiRedux } from "react-icons/si";
 
 const About = () => {
+  const technologies = [
+    { name: "HTML5", icon: FaHtml5 },
+    { name: "CSS", icon: FaCss3Alt },
+    { name: "JavaScript", icon: IoLogoJavascript },
+    { name: "React", icon: FaReact },
+    { name: "React Native", icon: FaReact },
+    { name: "TailwindCss", icon: RiTailwindCssFill },
+    { name: "Bootstrap", icon: FaBootstrap },
+    { name: "Next.js", icon: RiNextjsFill },
+    { name: "Redux", icon: SiRedux },
+  ];
   return (
     <div className="p-5 min-h-screen">
       <div>
@@ -106,6 +125,27 @@ const About = () => {
               alt="Frontend Sertifika"
             />
           </div>
+        </div>
+      </div>
+
+      {/*Kullanılan Teknolojiler*/}
+      <div>
+        <h1 className="text-[#DF6D2D] my-5 text-lg md:text-xl font-semibold">
+          Kullandığı Teknolojiler
+        </h1>
+        <div className="flex flex-wrap gap-4 p-4">
+          {technologies.map((tech, index) => {
+            const Icon = tech.icon; // İkon bileşenini değişkene atayın
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 border border-[#500073]"
+              >
+                <Icon className="text-4xl text-[#500073]" /> {/* İkonu render et */}
+                <span className="mt-2 text-sm font-medium text-gray-700">{tech.name}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 

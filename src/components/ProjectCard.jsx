@@ -4,24 +4,44 @@ import React from "react";
 const ProjectCard = ({ project, onClick }) => {
   return (
     <div
-      className="border-4 border-[#500073] bg-[#E5D9F2] rounded-md w-full max-w-md mx-auto flex flex-col shadow-xl justify-start items-center hover:scale-105 transition-transform duration-300 cursor-pointer"
+      className="p-2 border-2 border-[#500073] bg-white rounded-lg w-full max-w-md mx-auto flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
       onClick={onClick}
     >
-      <Image
-        className="object-contain w-full p-3 rounded-md "
-        src={project.image}
-        width={400}
-        height={150}
-        alt={project.title}
-      />
-      <div className="py-1 px-4 text-start rounded-b-md bg-[#E5D9F2] w-full">
-        <h3 className="sm:text-base text-2xl font-bold text-gray-800 my-2">{project.title}</h3>
-        <h3>{project.text}</h3>
+      {/* Resim Alanı */}
+      <div className="relative w-full h-56 overflow-hidden ">
+        <Image
+          src={project.image}
+          alt={project.title}
+          layout="fill"
+          objectFit="cover"
+          className="transition-transform duration-300 hover:scale-110"
+        />
       </div>
-      <div className="flex gap-3 text-3xl mt-2 bg-[#DF6D2D]  p-2 rounded-md">
-        {(project.technologies || []).map((Icon, index) => (
-          <Icon key={index} />
-        ))}
+
+      {/* İçerik Alanı */}
+      <div className="p-4 flex flex-col flex-1">
+        {/* Başlık */}
+        <h3 className="text-xl font-bold text-[#500073] mb-2">{project.title}</h3>
+
+        {/* Açıklama */}
+        <p className="text-sm text-gray-600 flex-1">{project.text}</p>
+
+        {/* Teknolojiler */}
+        <div className="flex gap-3 mt-4">
+          {(project.technologies || []).map((Icon, index) => (
+            <div
+              key={index}
+              className="text-2xl text-[#500073] hover:text-[#DF6D2D] transition-colors duration-200"
+            >
+              <Icon />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Alt Çubuk (Opsiyonel) */}
+      <div className="bg-[#DF6D2D] p-2 text-center">
+        <span className="text-sm text-white font-medium">Detayları Gör</span>
       </div>
     </div>
   );
