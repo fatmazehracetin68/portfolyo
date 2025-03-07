@@ -1,10 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { RiMailSendLine } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
-import { collection, addDoc } from "firebase/firestore";
-import { useState } from "react";
-import { db } from "@/firebase";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
@@ -12,29 +10,42 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Sayfanın yenilenmesini engelle
+    e.preventDefault();
 
     if (!email || !message) {
       alert("Lütfen tüm alanları doldurun.");
       return;
     }
 
-    setLoading(true); // Yükleniyor durumuna al
-    setSuccess(false); // Başarı mesajını sıfırla
-    try {
-      const docRef = await addDoc(collection(db, "messages"), {
-        email: email?.trim() || "Bilinmiyor",
-        message: message?.trim() || "Boş mesaj",
-        createdAt: new Date().toISOString(),
-      });
+    setLoading(true);
+    setSuccess(false);
 
-      console.log("Mesaj başarıyla gönderildi:", docRef.id);
-    } catch (error) {
-      console.error("Firestore'a yazarken hata oluştu:", error);
-      alert(`Hata: ${error.message}`);
-    }
-    setLoading(false); // Yükleniyor durumunu kaldır
+    const templateParams = {
+      from_email: email,
+      message: message,
+    };
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        templateParams
+      )
+      .then(
+        () => {
+          setSuccess(true);
+          setEmail("");
+          setMessage("");
+        },
+        (error) => {
+          console.error("Email gönderme hatası:", error);
+          alert("Mesaj gönderilirken bir hata oluştu.");
+        }
+      )
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -111,5 +122,8 @@ const Contact = () => {
     </div>
   );
 };
+console.log("Service ID:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+console.log("Template ID:", process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+console.log("Public Key:", process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
 
 export default Contact;

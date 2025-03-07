@@ -6,6 +6,7 @@ import { FaLaptopCode } from "react-icons/fa6";
 import { BsReverseLayoutTextSidebarReverse } from "react-icons/bs";
 import { RiMailAiLine, RiHome3Line } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
+import Image from "next/image";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,9 +31,13 @@ const SideBar = () => {
         } lg:translate-x-0`}
       >
         {/* Sidebar Başlık */}
-        <h1 className="italic mt-36 text-2xl text-center rotate-[-12deg] text-white font-bold">
-          Fatma Zehra <br /> Çetin
-        </h1>
+        <Image
+          className="object-cover"
+          src="/fatma zehra çetin (1).png"
+          width={200}
+          height={150}
+          alt="Profile Picture"
+        />
 
         {/* Menü */}
         <nav className="w-full mt-16">

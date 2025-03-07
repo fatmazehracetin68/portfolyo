@@ -44,24 +44,27 @@ const About = () => {
           </h4>
           <h5 className="text-[#DF6D2D] my-1 text-base md:text-lg">Ankara, TR</h5>
           <div className="text-black text-sm md:text-base leading-relaxed">
-            <p>1996 Aksaray doğumlu Fatma Zehra Çetin evli ve bir kız çocuk annesidir.</p>
             <p>
-              2014 yılında Cumhuriyet Üniversitesi Psikolojik Danışmanlık ve Rehberlik bölümünü
-              kazanarak üniversite hayatına başlamıştır. 2018 yılında 3.18/4 not ortalamasıyla mezun
-              olmuştur. Üniversite öğrenimi sırasında Zeka Oyunları, Çocuk Objektif
-              Testleri,Psikanalitik Psikoterapi eğitimleri almıştır. Çeşitli platformlarda online
-              danışmanlık yapmıştır.
+              1996 Aksaray doğumlu, evli ve bir kız çocuk annesiyim. 2014 yılında Cumhuriyet
+              Üniversitesi Psikolojik Danışmanlık ve Rehberlik bölümünü kazanarak üniversite
+              hayatıma başladım. 2018 yılında 3.18/4 not ortalamasıyla mezun oldum. Üniversite
+              eğitimim sırasında Zeka Oyunları, Çocuk Objektif Testleri ve Psikanalitik Psikoterapi
+              gibi alanlarda eğitimler aldım. Mezuniyet sonrası çeşitli platformlarda online
+              danışmanlık hizmeti vererek hem tecrübe kazandım hem de insanlara destek olmanın
+              mutluluğunu yaşadım.
             </p>
             <p>
-              Yazılıma olan ilgisiyle birlikte teknoloji çağına ayak uydurmak amacıyla 2022 yılında
-              Anadolu Üniversitesi Bilgisayar Programcılığı bölümüne kaydolmuştur ve hayatında başka
-              bir dönem açılmıştır. Udemig Akademi'den "Frontend Developer" ve "Mobile Developer"
-              eğitimleri almıştır. Uluslararası Akreditasyon Merkezinden 400 Saatlik Yazılım
-              Uzmanlığı Eğitimi almıştır.
+              Teknolojiye ve yazılıma olan ilgim, beni 2022 yılında Anadolu Üniversitesi Bilgisayar
+              Programcılığı bölümüne kaydolmaya yöneltti. Bu kararla birlikte hayatımda yeni bir
+              sayfa açıldı. Udemig Akademi'den Frontend Developer ve Mobile Developer eğitimleri
+              aldım. Ayrıca Uluslararası Akreditasyon Merkezi tarafından verilen 400 saatlik Yazılım
+              Uzmanlığı Eğitimini tamamladım.
             </p>
             <p>
-              HTML, CSS, JavaScript, React, React Native, Next.js teknolojileriyle çalışmakta olup
-              bu alanda gün geçtikçe kendini geliştirmektedir.
+              Şu anda aktif olarak HTML, CSS, JavaScript, React, React Native ve Next.js gibi
+              teknolojilerle çalışıyorum. Yazılım alanında kendimi sürekli geliştiriyor ve bu alanda
+              profesyonel olarak çalışıyorum. Hem psikolojik danışmanlık hem de yazılım alanındaki
+              bilgi ve deneyimlerimi birleştirerek, insanlara daha iyi hizmet sunmayı hedefliyorum.
             </p>
           </div>
         </div>
