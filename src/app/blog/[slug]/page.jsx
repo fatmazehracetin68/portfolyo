@@ -1,13 +1,32 @@
-import { blogPosts } from "@/app/data/blogPost";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/firebaseConfig";
 import { notFound } from "next/navigation";
 
-// Dinamik sayfa bileşeni
-export default function BlogPost({ params }) {
-  // Slug parametresine göre blog yazısını alıyoruz
-  const post = blogPosts[params.slug];
+export default function BlogPost() {
+  const { slug } = useParams();
+  const [post, setPost] = useState(null);
 
-  // Eğer post bulunamazsa 404 sayfasına yönlendiriyoruz
-  if (!post) return notFound();
+  useEffect(() => {
+    const fetchBlog = async () => {
+      if (!slug) return;
+      const docRef = doc(db, "blogs", slug);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setPost({ id: docSnap.id, ...docSnap.data() });
+      } else {
+        notFound();
+      }
+    };
+
+    fetchBlog();
+  }, [slug]);
+
+  if (!post) return <p className="text-center mt-10">Yükleniyor...</p>;
 
   return (
     <div className="max-w-3xl mx-auto p-6">
@@ -20,10 +39,4 @@ export default function BlogPost({ params }) {
       <p className="mt-6 text-gray-700 leading-relaxed whitespace-pre-line">{post.content}</p>
     </div>
   );
-}
-
-// Slug için statik parametreleri önceden oluştur
-export async function generateStaticParams() {
-  // Blog yazılarının slug'larını alıp parametre olarak döndürüyoruz
-  return Object.keys(blogPosts).map((slug) => ({ slug }));
 }
