@@ -32,10 +32,10 @@ const About = () => {
       {/* Profil Kısmı */}
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6">
         <Image
-          className="rounded-full object-cover"
-          src="/ftz.jpeg"
-          width={200}
-          height={200}
+          className="rounded-md object-cover mt-0 md:mt-20"
+          src="/ftz-about.png"
+          width={250}
+          height={250}
           alt="Profile Picture"
         />
         <div className="text-black w-full md:w-2/3 p-5">

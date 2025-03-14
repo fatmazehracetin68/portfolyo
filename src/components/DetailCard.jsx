@@ -39,17 +39,19 @@ const DetailCard = ({ project, onClose }) => {
               {project.github}
             </a>
           </p>
-          <p className="text-gray-700">
-            <strong className="text-[#DF6D2D]">İncele:</strong>{" "}
-            <a
-              href={project.link}
-              className="text-[#500073] hover:text-[#DF6D2D] hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {project.link}
-            </a>
-          </p>
+          {project.link && (
+            <p className="text-gray-700">
+              <strong className="text-[#DF6D2D]">İncele:</strong>{" "}
+              <a
+                href={project.link}
+                className="text-[#500073] hover:text-[#DF6D2D] hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.link}
+              </a>
+            </p>
+          )}
         </div>
 
         {/* Geri Dön Butonu */}

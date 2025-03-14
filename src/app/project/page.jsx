@@ -29,9 +29,11 @@ const projects = [
     id: 2,
     title: "KICKS Shoes",
     text: "Ayakkabı satışı yapan bir site için oluşturulmuş projedir",
+    comment:
+      "Bu proje bir ayakkabı satış sitesidir. Anasayfada ayakkabılar için filtreleme özellikleri bulunmaktadır. Her ayakkabı için detay sayfası bulunmakta ve bu sayfada ayakkabı görselleri, numara, renk , açıklama gibi özellikler yer almaktadır.",
     image: "/shose.png",
     detail:
-      "React Query ile oluşturulmuş, Tailwind ile stillendirilmiş bu proje bir ayakkabı satış sitesidir. Anasayfada ayakkabılar için filtreleme özellikleri bulunmaktadır. Her ayakkabı için detay sayfası bulunmakta ve bu sayfada ayakkabı görselleri, numara, renk , açıklama gibi özellikler yer almaktadır.",
+      "Proje esnasında React Query,Typescript , stillendirme aşamasında Tailwind kullanılmıştır.",
     github: "https://github.com/fatmazehracetin68/shoes",
     technologies: [FaReact, RiTailwindCssFill, SiTypescript],
   },
@@ -39,11 +41,34 @@ const projects = [
     id: 3,
     title: "Cafe Menü",
     text: "Hamburger ürünleri satan bir cafeye ait menüdür.",
+    comment:
+      "Bu proje bir cafe menü projesidir. Seçilen menü türüne göre filtreleme yaparak menüleri getirmektedir. Responsive tasarıma sahiptir.",
     image: "/cafe.png",
-    detail:
-      "HTML CSS ve React kullanarak oluşturmuş olduğum Burger Shop projemde bir Burger Restorantına ait burger çeşitleri tanıtılmış, fiyat bilgisi sunulan bir menü oluşturulmuş ve müşterilerle iletişime geçecekleri bir form bölümü oluşturulmuştur.",
+    detail: "HTML, Css ve Javascript kullanılarak oluşturulmuştur.",
     github: "https://github.com/fatmazehracetin68/cafe-menu",
     technologies: [FaHtml5, FaCss3Alt, IoLogoJavascript],
+  },
+  {
+    id: 4,
+    title: "Netflix Mobil Clone",
+    text: "Netflix benzeri mobil uygulamadır.",
+    comment:
+      "Bu proje React-native ile yapılmış Netflix benzeri bir uygulamadır. Başlangıç sayfası,Profil sayfası,Anasayfa,Favoriler,Filmler ve Film detayları sayfasından oluşmaktadır. Filmler için kullanılan api 'Themoviedb'dir.",
+    image: "/netflix-mobil.jpg",
+    detail: "React Native kullanılarak oluşturulmuştur.",
+    github: "https://github.com/fatmazehracetin68/Netflix-mobile",
+    technologies: [FaReact],
+  },
+  {
+    id: 5,
+    title: "Rehber",
+    text: "Telefon rehberi uygulamasıdır.",
+    comment:
+      "Bu proje bir telefon rehberi uygulamasıdır. Kişiler , detay ve gruplandırma sayfaları bulunmaktadır. Listedeki kişileri isimlerine göre arama yapabilmekte ve detay sayfasına girerek kişilerle ilgili özelliklere bakılabilmektedir..",
+    image: "/rehber2.jpg",
+    detail: "React Native kullanılarak oluşturulmuştur.",
+    github: "https://github.com/fatmazehracetin68/rehber-mobile",
+    technologies: [FaReact],
   },
 ];
 
